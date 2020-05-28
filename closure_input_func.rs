@@ -16,4 +16,3 @@ fn main() {
     call_me(closure);
     call_me(function);
 }
-

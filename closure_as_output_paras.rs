@@ -25,4 +25,3 @@ fn main() {
     fn_mut();
     fn_once();
 }
-

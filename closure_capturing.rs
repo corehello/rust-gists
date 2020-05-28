@@ -1,11 +1,11 @@
 fn main() {
     use std::mem;
-    
+
     let color = "green";
 
     // A closure to print `color` which immediately borrows (`&`) `color` and
     // stores the borrow and closure in the `print` variable. It will remain
-    // borrowed until `print` is used the last time. 
+    // borrowed until `print` is used the last time.
     //
     // `println!` only requires arguments by immutable reference so it doesn't
     // impose anything more restrictive.
@@ -15,13 +15,12 @@ fn main() {
     print();
 
     // `color` can be borrowed immutably again, because the closure only holds
-    // an immutable reference to `color`. 
+    // an immutable reference to `color`.
     let _reborrow = &color;
     print();
 
     // A move or reborrow is allowed after the final use of `print`
     let _color_moved = color;
-
 
     let mut count = 0;
     // A closure to increment `count` could take either `&mut count` or `count`
@@ -40,15 +39,14 @@ fn main() {
 
     // The closure still mutably borrows `count` because it is called later.
     // An attempt to reborrow will lead to an error.
-    // let _reborrow = &count; 
+    // let _reborrow = &count;
     // ^ TODO: try uncommenting this line.
     inc();
 
     // The closure no longer needs to borrow `&mut count`. Therefore, it is
     // possible to reborrow without an error
-    let _count_reborrowed = &mut count; 
+    let _count_reborrowed = &mut count;
 
-    
     // A non-copy type.
     let movable = Box::new(3);
 
@@ -66,4 +64,3 @@ fn main() {
     // consume();
     // ^ TODO: Try uncommenting this line.
 }
-

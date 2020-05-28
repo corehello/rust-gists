@@ -18,4 +18,3 @@ fn main() {
     // ^ `if let` had additional optional `else`/`else if`
     // clauses. `while let` does not have these.
 }
-
